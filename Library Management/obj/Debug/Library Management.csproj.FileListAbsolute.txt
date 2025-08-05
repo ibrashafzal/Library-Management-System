@@ -1,0 +1,15 @@
+C:\Users\jk\source\repos\Library Management\Library Management\obj\Debug\Library Management.csproj.AssemblyReference.cache
+C:\Users\jk\source\repos\Library Management\Library Management\obj\Debug\Library_Management.Grid.resources
+C:\Users\jk\source\repos\Library Management\Library Management\obj\Debug\Library_Management.Properties.Resources.resources
+C:\Users\jk\source\repos\Library Management\Library Management\obj\Debug\Library_Management.User_Management.User.resources
+C:\Users\jk\source\repos\Library Management\Library Management\obj\Debug\Library Management.csproj.GenerateResource.cache
+C:\Users\jk\source\repos\Library Management\Library Management\obj\Debug\Library Management.csproj.CoreCompileInputs.cache
+C:\Users\jk\source\repos\Library Management\Library Management\bin\Debug\Library Management.exe.config
+C:\Users\jk\source\repos\Library Management\Library Management\bin\Debug\Library Management.exe
+C:\Users\jk\source\repos\Library Management\Library Management\bin\Debug\Library Management.pdb
+C:\Users\jk\source\repos\Library Management\Library Management\obj\Debug\Library Management.exe
+C:\Users\jk\source\repos\Library Management\Library Management\obj\Debug\Library Management.pdb
+C:\Users\jk\source\repos\Library Management\Library Management\obj\Debug\Library_Management.Issue_Book.IssueBook.resources
+C:\Users\jk\source\repos\Library Management\Library Management\obj\Debug\Library_Management.Book.resources
+C:\Users\jk\source\repos\Library Management\Library Management\obj\Debug\Library_Management.Return_Book.ReturnBook.resources
+C:\Users\jk\source\repos\Library Management\Library Management\obj\Debug\Library_Management.Admin.ADMIN.resources
