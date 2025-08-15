@@ -67,7 +67,7 @@ namespace Library_Management
                 MessageBox.Show("Book Added Successfully!", "Success", MessageBoxButtons.OK);
             }
 
-            // Here Book is the model/DTO
+           
             var book = new BookModel
             {
                 Tittle = txtTittle.Text,
@@ -132,7 +132,6 @@ namespace Library_Management
         {
             var selectedBooks = new List<BookModel>();
 
-            // Get selected rows from the DataGridView
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
                 if (row.DataBoundItem is BookModel book)

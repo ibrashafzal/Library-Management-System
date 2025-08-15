@@ -9,7 +9,7 @@ namespace Library_Management.User_Management
     {
         public UserRepo repo { get; set; }
         public UserRepo userRepo = new UserRepo();
-        private int? UserId = null; // Track which user is being edited
+        private int? UserId = null; 
 
         public User()
         {
@@ -29,7 +29,7 @@ namespace Library_Management.User_Management
         private void loadGrid()
         {          
             dataGridView2.DataSource = null;
-            dataGridView2.DataSource = userRepo.GetAll(); // Bind list to grid
+            dataGridView2.DataSource = userRepo.GetAll(); 
         }
              
 
@@ -64,7 +64,7 @@ namespace Library_Management.User_Management
                 Class = txtClass.Text,
                 Contact = txtContact.Text
             };
-            if (UserId.HasValue) // Editing an existing user
+            if (UserId.HasValue)
             {
                 userRepo.EditUser(UserId.Value, user);
                 UserId = null;
@@ -90,12 +90,12 @@ namespace Library_Management.User_Management
            
             if (dataGridView2.CurrentRow == null) return;
 
-            // Get user ID from selected row
+            
             int userId = Convert.ToInt32(dataGridView2.CurrentRow.Cells["Id"].Value);
             UserModel selectedUser = userRepo.GetAll().Find(u => u.Id == userId);
             if (selectedUser != null)
             {
-                // Populate form for editing
+                
                 txtName.Text = selectedUser.Name;
                 txtEmail.Text = selectedUser.Email;
                 txtClass.Text = selectedUser.Class;
