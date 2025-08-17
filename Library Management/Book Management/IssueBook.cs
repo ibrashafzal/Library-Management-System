@@ -40,7 +40,7 @@ namespace Library_Management.Issue_Book
             var users = userRepo.GetAll();
 
             comboStudent.DataSource = users;
-            comboStudent.DisplayMember = "Name";   // Show only the name
+            comboStudent.DisplayMember = "Name";   
             comboStudent.ValueMember = "ID";
         }
 
@@ -58,7 +58,7 @@ namespace Library_Management.Issue_Book
         private void btnIssue_Click(object sender, EventArgs e)
         {
             string selectedUser = comboStudent.Text;
-            //  Build a list of issued books
+            
             List<string> lines = new List<string>();
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
