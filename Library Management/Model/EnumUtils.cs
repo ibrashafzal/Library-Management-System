@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library_Management.Model
 {
-    //This file will store all enums we can use in our application anywhere.
+    
     public enum BookCategory
     {
         English,

@@ -1,99 +1,155 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Library_Management.User_Management;
+using System.IO;
+using System.Data.SqlClient;
+using Library_Management.BL;
+using Library_Management.UI;
 
 namespace Library_Management.Admin
 {
     public partial class ADMIN : Form
     {
+        
+        public UserRepo userRepo = new UserRepo();
         public ADMIN()
         {
             InitializeComponent();
-            label1.Visible = false;
-            toolStrip1.Visible = false;
-
+            this.AcceptButton = btnLogin;
         }
 
         private void ADMIN_Load(object sender, EventArgs e)
         {
             this.TransparencyKey = Color.Empty;
+            foreach (Control form in this.Controls)
+            {
+                if (form is MdiClient mdiClient)
+                {
+                    mdiClient.BackColor = Color.Beige;               
+                }
+            }
+            toolStrip1.Visible = false;
         }
         private void ShowAdminPanel()
         {
-            // Hide login controls
+            toolStrip1.Visible = true;
+            labelLogin.Visible = false;
+            labelUserName.Visible = false;
             txtUserName.Visible = false;
+            labelPassword.Visible = false;
             txtPassword.Visible = false;
             btnLogin.Visible = false;
-            labelUserName.Visible = false;
-            labelPassword.Visible = false;
-            labelLogin.Visible = false;
-            // Show admin controls
-            toolStrip1.Visible = true;
-            label1.Visible = true;
+            checkPassword.Visible = false;
+            panel1.Visible = false;
+
         }
-        private void ShowLoginPanel()
+        private void ShowLogin()
         {
-            // Hide admin controls
-            label1.Visible = false;
             toolStrip1.Visible = false;
-            // Show login controls
-           txtUserName.Visible = true;
-            txtPassword.Visible = true;
-            btnLogin.Visible = true;
             labelLogin.Visible = true;
             labelUserName.Visible = true;
+            txtUserName.Visible = true;
             labelPassword.Visible = true;
-        }  
+            txtPassword.Visible = true;
+            btnLogin.Visible = true;
+            checkPassword.Visible = true;
+            panel1.Visible = true;
+            
+        }
+
+
+        private void toolStripStudent_Click(object sender, EventArgs e)
+        {
+            foreach (Form child in this.MdiChildren)
+            {
+                if (child is Students)
+                {
+                    child.Activate();
+                    return;
+                }
+            }
+            Students studentForm = new Students();
+            studentForm.MdiParent = this;
+            studentForm.Show();
+
+        }
+
+        private void toolStripBook_Click(object sender, EventArgs e)
+        {
+            foreach (Form child in this.MdiChildren)
+            {
+                if (child is Books)
+                {
+                    child.Activate();
+                    return;
+                }
+
+            }
+            Books bookfrom = new Books();
+            bookfrom.MdiParent = this;
+            bookfrom.Show();
+        }
+       
+
+        private void toolStripLogout_Click(object sender, EventArgs e)
+        {
+           ShowLogin();
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+            }
+
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtUserName.Text))
+            string enteredUserName = txtUserName.Text;
+            string enteredPassword = txtPassword.Text;
+            if (string.IsNullOrWhiteSpace(enteredUserName) && string.IsNullOrWhiteSpace(enteredPassword))
             {
-                txtUserName.Focus();
-                return;
+                MessageBox.Show("UserName and Password are incorrect!");
             }
-
-            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            bool login = userRepo.GetUsers(enteredUserName, enteredPassword);
+            if (login)
             {
-                txtPassword.Focus();
-                return;
-            }
-            string username = txtUserName.Text;
-            string password = txtPassword.Text;
-            if (username == "admin" && password == "1234")
-            {
-                MessageBox.Show("Login successful!");
                 ShowAdminPanel();
-               
+                
+            }
+            else
+            {
+                MessageBox.Show("Login Failed", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private void toolStripButton2_Click_1(object sender, EventArgs e)
+
+        private void checkPassword_CheckedChanged(object sender, EventArgs e)
         {
-            User user = new User();
-            user.FormClosed += delegate
+            if (checkPassword.Checked)
             {
-                this.Show();
-            };
-            
-            this.Hide();
-            user.Show();
+                txtPassword.UseSystemPasswordChar = true;
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = false;
+            }
         }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
+        private void toolStripIssue_Click(object sender, EventArgs e)
         {
-            Book book = new Book();
-            book.FormClosed += delegate
+            foreach (Form child in MdiChildren)
             {
-                this.Show();
-            };
+                if (child is Issue)
+                {
+                    child.Activate();
+                    return;
+                }
+            }
+            Library_Management.UI.Issue issueForm = new Library_Management.UI.Issue();
+            issueForm.MdiParent = this;
+            issueForm.Show();
 
-            this.Hide();
-            book.Show();
-        }
-
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-            ShowLoginPanel();
         }
     }
 }
+
+
+
