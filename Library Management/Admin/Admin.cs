@@ -89,8 +89,22 @@ namespace Library_Management.Admin
             bookfrom.MdiParent = this;
             bookfrom.Show();
         }
-       
 
+        private void toolStripIssue_Click(object sender, EventArgs e)
+        {
+            foreach (Form child in MdiChildren)
+            {
+                if (child is Issue)
+                {
+                    child.Activate();
+                    return;
+                }
+            }
+            Library_Management.UI.Issue issueForm = new Library_Management.UI.Issue();
+            issueForm.MdiParent = this;
+            issueForm.Show();
+
+        }
         private void toolStripLogout_Click(object sender, EventArgs e)
         {
            ShowLogin();
@@ -133,20 +147,12 @@ namespace Library_Management.Admin
             }
         }
 
-        private void toolStripIssue_Click(object sender, EventArgs e)
-        {
-            foreach (Form child in MdiChildren)
-            {
-                if (child is Issue)
-                {
-                    child.Activate();
-                    return;
-                }
-            }
-            Library_Management.UI.Issue issueForm = new Library_Management.UI.Issue();
-            issueForm.MdiParent = this;
-            issueForm.Show();
+     
 
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtUserName.Clear();
+            txtPassword.Clear();
         }
     }
 }

@@ -7,7 +7,7 @@
       <Diagram DiagramId="85d64f0d80344332a18cc151db5a24aa" Name="Diagram1">
         <EntityTypeShape EntityType="LMSModel.Book" Width="1.5" PointX="6.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="LMSModel.Issue" Width="1.5" PointX="8.875" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LMSModel.Student" Width="1.5" PointX="4.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Student" Width="1.5" PointX="3.625" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="LMSModel.User" Width="1.5" PointX="1.5" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="LMSModel.FK_Issue_Book" ManuallyRouted="false" />
         <AssociationConnector Association="LMSModel.FK_Issue_Student" ManuallyRouted="false" />

@@ -64,11 +64,11 @@ namespace Library_Management.BL
         }
         public void DecreaseAvailable(int bookId, int issuedQty)
         {
-            bookDAL.DecreaseAvailableQuantity(bookId, issuedQty);
+            bookDAL.ReturnQuantity(bookId, issuedQty);
         }
-        public void IncreaseAvailable(int bookId, int quantity)
+        public void Increase(int bookId, int quantity)
         {
-            bookDAL.IncreaseAvailableQuantity(bookId, quantity);
+            bookDAL.IncreaseAvailable(bookId, quantity);
         }
 
 

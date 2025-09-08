@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Library_Management.Admin;
 using Library_Management.BL;
 using Library_Management.BLL;
-using Library_Management.DAL;
+using Library_Management.Reports;
 
 namespace Library_Management.UI
 {
@@ -20,6 +20,8 @@ namespace Library_Management.UI
         public StudentRepo studentRepo = new StudentRepo();
         public IssueRepo issueRepo = new IssueRepo();
         public UserRepo userRepo = new UserRepo();
+        public Report reports = new Report();
+
         public Issue()
         {
             InitializeComponent();
@@ -30,7 +32,7 @@ namespace Library_Management.UI
         {
             LoadBooks();
             LoadStudent();
-            LoadIssuedBooksInTree();
+            LoadTree();
         }
         public void LoadBooks()
         {
@@ -62,28 +64,20 @@ namespace Library_Management.UI
                 return;
             }
 
-            // 1. Save issue record in DB
             issueRepo.IssueBook(selectedStudent.Id, selectedBook.Id, quantity);
 
-            // 2. Decrease available stock permanently
             bookRepo.DecreaseAvailable(selectedBook.Id, quantity);
 
-            // 3. Reload grid to show updated AvailableQuantity
             LoadBooks();
+            LoadTree();
 
-            // 4. Reload TreeView
-            LoadIssuedBooksInTree();
-
-            MessageBox.Show("Book issued successfully!");
-
-            // Reload TreeView
-            LoadIssuedBooksInTree();
+            MessageBox.Show("Book issued successfully!","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
         }
-        private void LoadIssuedBooksInTree()
+        private void LoadTree()
         {
             treeView1.Nodes.Clear();
-            var issues = issueRepo.GetIssuesWithDetails();
+            var issues = issueRepo.GetAllIssues();
             var pendingIssues = issues.Where(i => !i.IsReturned).ToList();
 
             List<string> studentNames = new List<string>();
@@ -103,34 +97,28 @@ namespace Library_Management.UI
                     {
                         string childText = issue.Book.Tittle + " | " + issue.IssueQuantity + " | " + issue.IssueDate.ToString("dd-MMM-yyyy");
 
-                        // 🔹 Create child node
                         TreeNode childNode = new TreeNode(childText);
 
-                        // 🔹 Store Issue.Id in Tag for return functionality
                         childNode.Tag = issue.Id;
-
-                        // 🔹 Add to student node
                         studentNode.Nodes.Add(childNode);
                     }
                 }
 
                 treeView1.Nodes.Add(studentNode);
             }
-
-            treeView1.ExpandAll();
         }
         private int GetSelectedIssueId()
         {
             var selectedNode = treeView1.SelectedNode;
 
             if (selectedNode == null)
-                return -1; // Nothing selected
+                return -1; 
 
             if (selectedNode.Parent == null)
-                return -1; // Parent node (student) selected, not a book
+                return -1; 
 
             if (selectedNode.Tag == null)
-                return -1; // Tag not set
+                return -1; 
 
             return (int)selectedNode.Tag;
         }
@@ -146,32 +134,27 @@ namespace Library_Management.UI
             }
 
             DateTime returnDate = dateTimePicker1.Value;
-
-            // Get issue details
-            var issue = issueRepo.GetIssuesWithDetails().FirstOrDefault(i => i.Id == issueId);
+            var issue = issueRepo.GetAllIssues().FirstOrDefault(i => i.Id == issueId);
             if (issue == null) return;
 
             int fine = 0;
 
-            // Calculate fine if late
             if (returnDate > issue.ExpectedReturnDate)
             {
                 int daysLate = (returnDate - issue.ExpectedReturnDate.Value).Days;
                 fine = 100 * daysLate * issue.IssueQuantity;
             }
 
-            // 1. Update Issue table
             issueRepo.ReturnBook(issueId, returnDate, fine);
             var book = bookRepo.GetBooks().FirstOrDefault(b => b.Id == issue.BookId);
-            // 2. Update AvailableQuantity in Book table
-            bookRepo.IncreaseAvailable(issue.BookId, issue.IssueQuantity);
+            bookRepo.Increase(issue.BookId, issue.IssueQuantity);
+
             if (book.AvailableQuantity > book.Quantity)
             {
                 MessageBox.Show("Available quantity cannot exceed total stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 3. Remove from TreeView
             treeView1.SelectedNode.Remove();
             for (int i = treeView1.Nodes.Count - 1; i >= 0; i--)
             {
@@ -179,9 +162,8 @@ namespace Library_Management.UI
                     treeView1.Nodes.RemoveAt(i);
             }
 
-            MessageBox.Show($"Book returned successfully. Fine: {fine}");
+            MessageBox.Show($"Book returned successfully.");
 
-            // Optional: reload grid to show updated AvailableQuantity
             LoadBooks();
         }
 
@@ -194,6 +176,34 @@ namespace Library_Management.UI
                 userRepo.FormLocation(this);
             }
         
+        }
+         
+        private void btnPDF_Click(object sender, EventArgs e)
+        {
+            string pdfPath = @"E:\Issue Book.pdf";
+            string reportTitle = "Issue Book";
+            float[] columnWidths = {3f,2f,2f};
+            string logoPath = @"E:/logo.png";
+            DateTime startDate = DateTime.Now;
+            DateTime endDate = DateTime.Now.AddDays(2);
+
+            Report.ExportGridToPDF(dataGridView1, pdfPath, reportTitle, startDate, endDate, columnWidths, logoPath);   
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = txtSearch.Text.Trim();
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = issueRepo.Search(searchText);
+        }
+
+        private void txtTreeSearch_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = txtSearch.Text.Trim();
+            var issue = issueRepo.GetAllIssues();
+            MessageBox.Show(issue.ToString());
+           
+           
         }
     }
 }

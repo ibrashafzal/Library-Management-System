@@ -44,6 +44,7 @@
             this.labelLogin = new System.Windows.Forms.Label();
             this.checkPassword = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClear = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -119,7 +120,7 @@
             this.labelUserName.AutoSize = true;
             this.labelUserName.BackColor = System.Drawing.Color.White;
             this.labelUserName.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUserName.Location = new System.Drawing.Point(28, 73);
+            this.labelUserName.Location = new System.Drawing.Point(49, 88);
             this.labelUserName.Name = "labelUserName";
             this.labelUserName.Size = new System.Drawing.Size(58, 13);
             this.labelUserName.TabIndex = 18;
@@ -130,7 +131,7 @@
             this.labelPassword.AutoSize = true;
             this.labelPassword.BackColor = System.Drawing.Color.White;
             this.labelPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPassword.Location = new System.Drawing.Point(28, 128);
+            this.labelPassword.Location = new System.Drawing.Point(49, 143);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(55, 13);
             this.labelPassword.TabIndex = 19;
@@ -139,20 +140,20 @@
             // txtUserName
             // 
             this.txtUserName.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(31, 89);
+            this.txtUserName.Location = new System.Drawing.Point(52, 104);
             this.txtUserName.Multiline = true;
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(227, 25);
+            this.txtUserName.Size = new System.Drawing.Size(256, 25);
             this.txtUserName.TabIndex = 20;
             // 
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(31, 144);
+            this.txtPassword.Location = new System.Drawing.Point(52, 159);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(227, 26);
+            this.txtPassword.Size = new System.Drawing.Size(256, 26);
             this.txtPassword.TabIndex = 21;
             // 
             // btnLogin
@@ -161,9 +162,9 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(42, 224);
+            this.btnLogin.Location = new System.Drawing.Point(199, 262);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(143, 34);
+            this.btnLogin.Size = new System.Drawing.Size(109, 34);
             this.btnLogin.TabIndex = 22;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -174,7 +175,7 @@
             this.labelLogin.AutoSize = true;
             this.labelLogin.BackColor = System.Drawing.Color.White;
             this.labelLogin.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLogin.Location = new System.Drawing.Point(71, 11);
+            this.labelLogin.Location = new System.Drawing.Point(90, 13);
             this.labelLogin.Name = "labelLogin";
             this.labelLogin.Size = new System.Drawing.Size(163, 37);
             this.labelLogin.TabIndex = 23;
@@ -184,7 +185,7 @@
             // 
             this.checkPassword.AutoSize = true;
             this.checkPassword.BackColor = System.Drawing.Color.White;
-            this.checkPassword.Location = new System.Drawing.Point(31, 176);
+            this.checkPassword.Location = new System.Drawing.Point(49, 191);
             this.checkPassword.Name = "checkPassword";
             this.checkPassword.Size = new System.Drawing.Size(102, 17);
             this.checkPassword.TabIndex = 25;
@@ -194,6 +195,8 @@
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.labelLogin);
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.checkPassword);
@@ -205,6 +208,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(374, 408);
             this.panel1.TabIndex = 27;
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.MediumBlue;
+            this.btnClear.FlatAppearance.BorderSize = 2;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(49, 262);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(109, 34);
+            this.btnClear.TabIndex = 26;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // ADMIN
             // 
@@ -248,5 +266,6 @@
         private System.Windows.Forms.CheckBox checkPassword;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripButton toolStripIssue;
+        private System.Windows.Forms.Button btnClear;
     }
 }

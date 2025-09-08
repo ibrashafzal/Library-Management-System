@@ -30,6 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnPDF = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.labelStudent = new System.Windows.Forms.Label();
             this.comboStudent = new System.Windows.Forms.ComboBox();
@@ -61,6 +63,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.txtSearch);
+            this.tabPage1.Controls.Add(this.btnPDF);
             this.tabPage1.Controls.Add(this.numericUpDown1);
             this.tabPage1.Controls.Add(this.labelStudent);
             this.tabPage1.Controls.Add(this.comboStudent);
@@ -73,6 +77,31 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "New Issue";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(407, 6);
+            this.txtSearch.Multiline = true;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(133, 28);
+            this.txtSearch.TabIndex = 6;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // btnPDF
+            // 
+            this.btnPDF.BackColor = System.Drawing.Color.Red;
+            this.btnPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPDF.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPDF.ForeColor = System.Drawing.Color.White;
+            this.btnPDF.Location = new System.Drawing.Point(558, 3);
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.Size = new System.Drawing.Size(75, 31);
+            this.btnPDF.TabIndex = 5;
+            this.btnPDF.Text = "Export";
+            this.btnPDF.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnPDF.UseVisualStyleBackColor = false;
+            this.btnPDF.Click += new System.EventHandler(this.btnPDF_Click);
             // 
             // numericUpDown1
             // 
@@ -127,11 +156,11 @@
             this.Tittle,
             this.Quantity,
             this.Available});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 40);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(627, 231);
+            this.dataGridView1.Size = new System.Drawing.Size(627, 197);
             this.dataGridView1.TabIndex = 0;
             // 
             // Tittle
@@ -195,9 +224,9 @@
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(6, 6);
+            this.treeView1.Location = new System.Drawing.Point(6, 3);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(627, 221);
+            this.treeView1.Size = new System.Drawing.Size(627, 224);
             this.treeView1.TabIndex = 0;
             // 
             // Issue
@@ -236,5 +265,7 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btnPDF;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }

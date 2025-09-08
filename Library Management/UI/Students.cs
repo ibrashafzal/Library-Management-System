@@ -38,7 +38,7 @@ namespace Library_Management.UI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow != null && !dataGridView1.CurrentRow.IsNewRow)
+            if (dataGridView1.SelectedRows != null && !dataGridView1.CurrentRow.IsNewRow)
             {
                 var student = new Student
                 {

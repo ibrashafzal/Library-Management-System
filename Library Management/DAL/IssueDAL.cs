@@ -21,7 +21,7 @@ namespace Library_Management.DAL
             }
         }
 
-        public List<Issue> GetIssuesWithDetails()
+        public List<Issue> GetIssues()
         {
             using(var db = new LMSEntities2()) 
             return db.Issues.Include("Student").Include("Book").ToList();

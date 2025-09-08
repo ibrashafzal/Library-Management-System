@@ -21,7 +21,7 @@ namespace Library_Management.DAL
         {
             using(var db = new LMSEntities2())
             {
-                book.AvailableQuantity = book.Quantity ?? 0;    // NEW LINE FOR ISSUE
+                book.AvailableQuantity = book.Quantity ?? 0;   
                 db.Books.Add(book);
                 db.SaveChanges();
             }
@@ -48,13 +48,13 @@ namespace Library_Management.DAL
                     existingBook.Category = book.Category;
 
 
-                    if (existingBook.AvailableQuantity > book.Quantity)  //NEW
-                        existingBook.AvailableQuantity = book.Quantity; //NEW
+                    if (existingBook.AvailableQuantity > book.Quantity)  
+                        existingBook.AvailableQuantity = book.Quantity; 
                     db.SaveChanges();
                 }
             }
         }
-        public void DecreaseAvailableQuantity(int bookId, int issuedQty) //NEW
+        public void ReturnQuantity(int bookId, int issuedQty) 
         {
             using (var db = new LMSEntities2())
             {
@@ -62,12 +62,12 @@ namespace Library_Management.DAL
                 if (book != null)
                 {
                     book.AvailableQuantity -= issuedQty;
-                    if (book.AvailableQuantity < 0) book.AvailableQuantity = 0; // safety
+                    if (book.AvailableQuantity < 0) book.AvailableQuantity = 0;
                     db.SaveChanges();
                 }
             }
         }
-        public void IncreaseAvailableQuantity(int bookId, int quantity)
+        public void IncreaseAvailable(int bookId, int quantity)
         {
             using (var db = new LMSEntities2())
             {
@@ -79,7 +79,7 @@ namespace Library_Management.DAL
 
                     int newAvailable = available + quantity;
 
-                    // Ensure it does not exceed total quantity
+                    
                     book.AvailableQuantity = Math.Min(newAvailable, totalQuantity);
 
                     db.SaveChanges();

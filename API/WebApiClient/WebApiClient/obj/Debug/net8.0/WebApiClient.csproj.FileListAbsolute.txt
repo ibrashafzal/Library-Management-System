@@ -1,0 +1,15 @@
+E:\C# Project\Library-Management-System\API\WebApiClient\WebApiClient\bin\Debug\net8.0\WebApiClient.exe
+E:\C# Project\Library-Management-System\API\WebApiClient\WebApiClient\bin\Debug\net8.0\WebApiClient.deps.json
+E:\C# Project\Library-Management-System\API\WebApiClient\WebApiClient\bin\Debug\net8.0\WebApiClient.runtimeconfig.json
+E:\C# Project\Library-Management-System\API\WebApiClient\WebApiClient\bin\Debug\net8.0\WebApiClient.dll
+E:\C# Project\Library-Management-System\API\WebApiClient\WebApiClient\bin\Debug\net8.0\WebApiClient.pdb
+E:\C# Project\Library-Management-System\API\WebApiClient\WebApiClient\obj\Debug\net8.0\WebApiClient.GeneratedMSBuildEditorConfig.editorconfig
+E:\C# Project\Library-Management-System\API\WebApiClient\WebApiClient\obj\Debug\net8.0\WebApiClient.AssemblyInfoInputs.cache
+E:\C# Project\Library-Management-System\API\WebApiClient\WebApiClient\obj\Debug\net8.0\WebApiClient.AssemblyInfo.cs
+E:\C# Project\Library-Management-System\API\WebApiClient\WebApiClient\obj\Debug\net8.0\WebApiClient.csproj.CoreCompileInputs.cache
+E:\C# Project\Library-Management-System\API\WebApiClient\WebApiClient\obj\Debug\net8.0\WebApiClient.sourcelink.json
+E:\C# Project\Library-Management-System\API\WebApiClient\WebApiClient\obj\Debug\net8.0\WebApiClient.dll
+E:\C# Project\Library-Management-System\API\WebApiClient\WebApiClient\obj\Debug\net8.0\refint\WebApiClient.dll
+E:\C# Project\Library-Management-System\API\WebApiClient\WebApiClient\obj\Debug\net8.0\WebApiClient.pdb
+E:\C# Project\Library-Management-System\API\WebApiClient\WebApiClient\obj\Debug\net8.0\WebApiClient.genruntimeconfig.cache
+E:\C# Project\Library-Management-System\API\WebApiClient\WebApiClient\obj\Debug\net8.0\ref\WebApiClient.dll

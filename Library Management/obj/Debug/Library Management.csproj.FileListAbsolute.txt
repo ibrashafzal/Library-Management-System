@@ -208,3 +208,109 @@ C:\Users\jk\source\repos\Library-Management-System\Library Management\obj\Debug\
 C:\Users\jk\source\repos\Library-Management-System\Library Management\obj\Debug\Library_Management.UI.Students.resources
 C:\Users\jk\source\repos\Library-Management-System\Library Management\obj\Debug\Library_Management.UI.Books.resources
 C:\Users\jk\Source\Repos\Library-Management-System\Library Management\obj\Debug\Library_Management.UI.Issue.resources
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Library Management.pdb
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\BouncyCastle.Cryptography.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\EntityFramework.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\EntityFramework.SqlServer.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.barcodes.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.bouncy-castle-adapter.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.bouncy-castle-connector.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.commons.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.forms.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.io.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.kernel.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.layout.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.pdfa.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.pdfua.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.sign.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.styledxmlparser.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.svg.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itextsharp.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Microsoft.Extensions.Logging.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Microsoft.Extensions.Options.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Microsoft.Extensions.Primitives.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Newtonsoft.Json.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.BarCodes.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.Charting.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.Cryptography.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.Quality.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.Shared.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.Snippets.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.System.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.WPFonts.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.Buffers.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.Memory.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.Numerics.Vectors.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.Security.Cryptography.Pkcs.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.Threading.Tasks.Extensions.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.ValueTuple.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\BouncyCastle.Cryptography.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\EntityFramework.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\EntityFramework.SqlServer.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.barcodes.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.bouncy-castle-adapter.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.bouncy-castle-connector.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.commons.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.forms.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.io.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.kernel.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.layout.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.pdfa.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.pdfua.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.sign.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.styledxmlparser.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itext.svg.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\itextsharp.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Microsoft.Extensions.Logging.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Microsoft.Extensions.Options.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Microsoft.Extensions.Primitives.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Newtonsoft.Json.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.pdb
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.BarCodes.pdb
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.BarCodes.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.Charting.pdb
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.Charting.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.Cryptography.pdb
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.Cryptography.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.Quality.pdb
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.Quality.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.Shared.pdb
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.Shared.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.Snippets.pdb
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.System.pdb
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.System.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.WPFonts.pdb
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\PdfSharp.WPFonts.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.Buffers.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.Memory.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.Numerics.Vectors.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.Security.Cryptography.Pkcs.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.Threading.Tasks.Extensions.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.ValueTuple.xml
+E:\C# Project\Library-Management-System\Library Management\obj\Debug\Library Management.csproj.AssemblyReference.cache
+E:\C# Project\Library-Management-System\Library Management\obj\Debug\Library_Management.Admin.ADMIN.resources
+E:\C# Project\Library-Management-System\Library Management\obj\Debug\Library_Management.Properties.Resources.resources
+E:\C# Project\Library-Management-System\Library Management\obj\Debug\Library_Management.UI.Books.resources
+E:\C# Project\Library-Management-System\Library Management\obj\Debug\Library_Management.UI.Issue.resources
+E:\C# Project\Library-Management-System\Library Management\obj\Debug\Library_Management.UI.Students.resources
+E:\C# Project\Library-Management-System\Library Management\obj\Debug\Library Management.csproj.GenerateResource.cache
+E:\C# Project\Library-Management-System\Library Management\obj\Debug\Library Management.csproj.CoreCompileInputs.cache
+E:\C# Project\Library-Management-System\Library Management\obj\Debug\Library .0D70EAA2.Up2Date
+E:\C# Project\Library-Management-System\Library Management\obj\Debug\Library Management.pdb
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Library Management.exe.config
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Library Management.exe
+E:\C# Project\Library-Management-System\Library Management\obj\Debug\Library Management.exe

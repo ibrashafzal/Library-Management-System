@@ -23,12 +23,12 @@ namespace Library_Management.Reports
                 PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(pdfPath, FileMode.Create));
                 doc.Open();
 
-                // ===== HEADER: Logo + Title =====
+               
                 PdfPTable headerTable = new PdfPTable(2);
                 headerTable.WidthPercentage = 100;
                 headerTable.SetWidths(new float[] { 1f, 4f });
 
-                // Logo
+                
                 if (!string.IsNullOrEmpty(logoPath) && File.Exists(logoPath))
                 {
                     Image logo = Image.GetInstance(logoPath);
@@ -49,7 +49,7 @@ namespace Library_Management.Reports
                     headerTable.AddCell(emptyCell);
                 }
 
-                // Title
+                
                 Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18);
                 PdfPCell titleCell = new PdfPCell(new Phrase(reportTitle, titleFont))
                 {
@@ -62,7 +62,7 @@ namespace Library_Management.Reports
                 doc.Add(headerTable);
                 doc.Add(new Paragraph("\n"));
 
-                // ===== START & END DATES =====
+                
                 PdfPTable dateTable = new PdfPTable(2);
                 dateTable.WidthPercentage = 50;
                 dateTable.SetWidths(new float[] { 1f, 1f });
@@ -84,7 +84,6 @@ namespace Library_Management.Reports
                 doc.Add(dateTable);
                 doc.Add(new Paragraph("\n"));
 
-                // ===== GRID DATA =====
                 PdfPTable table = new PdfPTable(dgv.Columns.Count);
                 table.WidthPercentage = 100;
                 if (columnWidths != null && columnWidths.Length == dgv.Columns.Count)
@@ -120,18 +119,25 @@ namespace Library_Management.Reports
                 doc.Add(table);
                 doc.Add(new Paragraph("\n"));
 
-                // ===== FOOTER =====
-                string footerText = $"Printed at: {DateTime.Now:g}    Printed by: {Environment.UserName}";
-                Paragraph footer = new Paragraph(footerText, FontFactory.GetFont(FontFactory.HELVETICA, 9, BaseColor.GRAY))
-                {
-                    Alignment = Element.ALIGN_LEFT
-                };
-                doc.Add(footer);
+                //  FOOTER 
+                Paragraph footer = new Paragraph();
+                footer.Font = FontFactory.GetFont(FontFactory.HELVETICA, 9, BaseColor.GRAY);
 
+                // Left text
+                footer.Add(new Chunk($"Printed at: {DateTime.Now:g}"));
+
+                // Add a "glue" marker that pushes next text to the far right
+                footer.Add(new Chunk(new iTextSharp.text.pdf.draw.VerticalPositionMark()));
+
+                // Right text
+                footer.Add(new Chunk($"Printed by: {Environment.UserName}"));
+
+                // Add to document
+                doc.Add(footer);
                 doc.Close();
                 writer.Close();
 
-                MessageBox.Show("PDF exported successfully!");
+                MessageBox.Show("PDF exported successfully!","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
