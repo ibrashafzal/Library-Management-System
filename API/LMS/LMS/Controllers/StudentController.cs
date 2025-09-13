@@ -16,7 +16,12 @@ namespace LMS.Controllers
             List<Student> students = studentRepo.GetStudents();
             return students.Select(x => new StudentData(x)).ToList();
         }
-
+        [HttpGet("{id}")]
+        public List<StudentData> GetbyId(int id)
+        {
+            List<Student> students = studentRepo.GetStudents().Where(s => s.Id == id).ToList();
+            return students.Select(x => new StudentData(x)).ToList();
+        }
         [HttpPost]
         public StudentData Add([FromBody] StudentDTO student)
         {

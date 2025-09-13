@@ -16,6 +16,12 @@ namespace LMS.Controllers
             List<Book> books = bookRepo.GetBooks();
             return books.Select(x => new BookData(x)).ToList();
         }
+        [HttpGet("{id}")]
+        public List<BookData> BookbyId(int id)
+        {
+            List < Book > books = bookRepo.GetBooks().Where(b => b.Id == id).ToList();
+            return books.Select(x => new BookData(x)).ToList();
+        }
         [HttpPost]
         public BookData Add ([FromBody]BookDTO Book)
         {

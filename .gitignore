@@ -4,3 +4,7 @@
 
 /.vs/Library Management
 /packages
+/API/LMS/.vs
+git rm -r --cached .vs
+
+
