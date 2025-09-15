@@ -1,5 +1,7 @@
-﻿using LMS.DTO;
+﻿using Library_Management.Reports;
+using LMS.DTO;
 using LMS.Entities;
+using LMS.Reports;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,26 +12,61 @@ namespace LMS.Controllers
     public class StudentController : ControllerBase
     {
         StudentRepo studentRepo = new StudentRepo();
+        private StudentReport StudentReport = new StudentReport();
+        /// <summary>
+        /// Get All Students.
+        /// </summary>
+        /// <response code="200">List of Student found </response>
+        /// <response code="204">List of Student not found</response>
+
         [HttpGet]
+        [ProducesResponseType(typeof(StudentData),StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(EmptyResult),StatusCodes.Status204NoContent)]
         public List<StudentData> Get()
         {
             List<Student> students = studentRepo.GetStudents();
             return students.Select(x => new StudentData(x)).ToList();
         }
+        /// <summary>
+        /// Get a required student by Id.
+        /// </summary>
+        /// <param name="id">The unique identifier of the student.</param>
+        /// <response code="200">Student found</response>
+        /// <response code ="404">Student not exist of that Id</response>
+
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(StudentData), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(EmptyResult), StatusCodes.Status404NotFound)]
         public List<StudentData> GetbyId(int id)
         {
             List<Student> students = studentRepo.GetStudents().Where(s => s.Id == id).ToList();
             return students.Select(x => new StudentData(x)).ToList();
         }
+        /// <summary>
+        /// Add a new Student.
+        /// </summary>
+        ///<response code= "201">Student Added Successfully</response>
+        ///<response code ="400">Bad Request</response>
+        /// <response code="409">Student already exists</response>
         [HttpPost]
+        [ProducesResponseType(typeof(StudentData), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(EmptyResult), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(EmptyResult), StatusCodes.Status409Conflict)]
         public StudentData Add([FromBody] StudentDTO student)
         {
             Student x = student.ToStudent();
             studentRepo.AddNew(x);
             return new StudentData(x);
         }
+        /// <summary>
+        /// Update a Student.
+        /// </summary>
+        /// <param name="id">The unique identifier of the Student to update.</param>
+        /// <response code = "200"> Student Updated Succesfully</response>
+        /// <response code = "404">Invalid Input </response>
         [HttpPut]
+        [ProducesResponseType(typeof(StudentData), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(EmptyResult), StatusCodes.Status404NotFound)]
         public ActionResult<StudentData> Update(int id, [FromBody]StudentDTO student)
         {
             var existingStudent = studentRepo.GetStudents().FirstOrDefault(s => s.Id == id);
@@ -44,7 +81,13 @@ namespace LMS.Controllers
             studentRepo.Update(existingStudent);
             return Ok(new StudentData(existingStudent));
         }
+        /// <summary>Delete a Student</summary>
+        /// <param name="id">The unique identifier of the Student to delete.</param>
+        /// <response code = "204">Student deleted successfully</response>
+        /// /// <response code="404">Student with the specified ID not found</response>
         [HttpDelete]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
         public ActionResult Delete(int id)
         {
             var studentid = studentRepo.GetStudents().FirstOrDefault(s => s.Id == id);
@@ -54,6 +97,20 @@ namespace LMS.Controllers
             }
             studentRepo.Delete(id);
             return NoContent();
+        }
+        /// <summary>
+        /// Get all Student in PDF with download links.
+        /// </summary>
+        [HttpGet("Student/report")]
+        public IActionResult ExportStudentReport()
+        {
+            var students = studentRepo.GetStudents();
+            string filePath = "E:/student Report";
+
+            StudentReport.ExportStudentToPDF(students,filePath, "Student Report", DateTime.Now, DateTime.Now.AddDays(3));
+
+            var bytes = System.IO.File.ReadAllBytes(filePath);
+            return File(bytes, "application/pdf", "StudentsReport.pdf");
         }
 
     }

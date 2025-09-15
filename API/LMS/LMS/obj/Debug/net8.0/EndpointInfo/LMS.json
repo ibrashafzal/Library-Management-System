@@ -1,8 +1,9 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "LMS",
-    "version": "1.0"
+    "title": "Library Management System",
+    "description": "This Library Management System API is designed to automate and simplify common library operations. It provides endpoints for:\r\n\r\nAdding, updating, and retrieving book records.\r\n\r\nRegistering and managing student accounts.\r\n\r\nIssuing books to students and tracking due dates.\r\n\r\nReturning books and updating availability.",
+    "version": "v1"
   },
   "paths": {
     "/api/Book": {
@@ -10,32 +11,44 @@
         "tags": [
           "Book"
         ],
+        "summary": "Get All Books.",
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "List of Books found",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/BookData"
-                  }
+                  "$ref": "#/components/schemas/BookData"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/BookData"
-                  }
+                  "$ref": "#/components/schemas/BookData"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/BookData"
-                  }
+                  "$ref": "#/components/schemas/BookData"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "List of Books not found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
                 }
               }
             }
@@ -46,6 +59,7 @@
         "tags": [
           "Book"
         ],
+        "summary": "Add a new book.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -66,8 +80,8 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Book Added Successfully",
             "content": {
               "text/plain": {
                 "schema": {
@@ -82,6 +96,46 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/BookData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Book already exists",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
                 }
               }
             }
@@ -92,10 +146,12 @@
         "tags": [
           "Book"
         ],
+        "summary": "Update a Book.",
         "parameters": [
           {
             "name": "id",
             "in": "query",
+            "description": "The unique identifier of the book to update.",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -123,7 +179,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Book Updated Succesfully",
             "content": {
               "text/plain": {
                 "schema": {
@@ -138,6 +194,26 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/BookData"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Invalid Input",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
                 }
               }
             }
@@ -148,10 +224,12 @@
         "tags": [
           "Book"
         ],
+        "summary": "Delete a book",
         "parameters": [
           {
             "name": "id",
             "in": "query",
+            "description": "The unique identifier of the book to delete.",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -159,8 +237,45 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Book deleted successfully",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookData"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Book with the specified ID not found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              }
+            }
           }
         }
       }
@@ -170,10 +285,12 @@
         "tags": [
           "Book"
         ],
+        "summary": "Get a required book by Id.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The unique identifier of the book.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -183,33 +300,57 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Book found",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/BookData"
-                  }
+                  "$ref": "#/components/schemas/BookData"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/BookData"
-                  }
+                  "$ref": "#/components/schemas/BookData"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/BookData"
-                  }
+                  "$ref": "#/components/schemas/BookData"
                 }
               }
             }
+          },
+          "404": {
+            "description": "Book not exist of that Id",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Book/books/report": {
+      "get": {
+        "tags": [
+          "Book"
+        ],
+        "summary": "Get all books in PDF with download links.",
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -219,6 +360,7 @@
         "tags": [
           "Issue"
         ],
+        "summary": "Issue a new book to Student",
         "requestBody": {
           "content": {
             "application/json": {
@@ -248,32 +390,24 @@
         "tags": [
           "Issue"
         ],
+        "summary": "Get all Issued Books",
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/IssueData1"
-                  }
+                  "$ref": "#/components/schemas/IssueData1"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/IssueData1"
-                  }
+                  "$ref": "#/components/schemas/IssueData1"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/IssueData1"
-                  }
+                  "$ref": "#/components/schemas/IssueData1"
                 }
               }
             }
@@ -286,10 +420,12 @@
         "tags": [
           "Issue"
         ],
+        "summary": "Get a particular issued book",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The unique identifier of the book",
             "required": true,
             "schema": {
               "type": "integer",
@@ -321,37 +457,62 @@
         }
       }
     },
+    "/api/Issue/Issue/report": {
+      "get": {
+        "tags": [
+          "Issue"
+        ],
+        "summary": "Get all issued books in PDF with download link",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Student": {
       "get": {
         "tags": [
           "Student"
         ],
+        "summary": "Get All Students.",
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "List of Student found",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StudentData"
-                  }
+                  "$ref": "#/components/schemas/StudentData"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StudentData"
-                  }
+                  "$ref": "#/components/schemas/StudentData"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StudentData"
-                  }
+                  "$ref": "#/components/schemas/StudentData"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "List of Student not found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
                 }
               }
             }
@@ -362,6 +523,7 @@
         "tags": [
           "Student"
         ],
+        "summary": "Add a new Student.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -382,8 +544,8 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Student Added Successfully",
             "content": {
               "text/plain": {
                 "schema": {
@@ -398,6 +560,46 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/StudentData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Student already exists",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
                 }
               }
             }
@@ -408,10 +610,12 @@
         "tags": [
           "Student"
         ],
+        "summary": "Update a Student.",
         "parameters": [
           {
             "name": "id",
             "in": "query",
+            "description": "The unique identifier of the Student to update.",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -439,7 +643,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Student Updated Succesfully",
             "content": {
               "text/plain": {
                 "schema": {
@@ -454,6 +658,26 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/StudentData"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Invalid Input",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
                 }
               }
             }
@@ -464,10 +688,12 @@
         "tags": [
           "Student"
         ],
+        "summary": "Delete a Student",
         "parameters": [
           {
             "name": "id",
             "in": "query",
+            "description": "The unique identifier of the Student to delete.",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -475,8 +701,28 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Student deleted successfully"
+          },
+          "404": {
+            "description": "Student with the specified ID not found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -486,10 +732,12 @@
         "tags": [
           "Student"
         ],
+        "summary": "Get a required student by Id.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The unique identifier of the student.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -499,33 +747,57 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Student found",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StudentData"
-                  }
+                  "$ref": "#/components/schemas/StudentData"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StudentData"
-                  }
+                  "$ref": "#/components/schemas/StudentData"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StudentData"
-                  }
+                  "$ref": "#/components/schemas/StudentData"
                 }
               }
             }
+          },
+          "404": {
+            "description": "Student not exist of that Id",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Student/Student/report": {
+      "get": {
+        "tags": [
+          "Student"
+        ],
+        "summary": "Get all Student in PDF with download links.",
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -583,6 +855,10 @@
             "format": "date-time"
           }
         },
+        "additionalProperties": false
+      },
+      "EmptyResult": {
+        "type": "object",
         "additionalProperties": false
       },
       "IssueDTO": {
@@ -644,6 +920,33 @@
           }
         },
         "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
       },
       "StudentDTO": {
         "type": "object",

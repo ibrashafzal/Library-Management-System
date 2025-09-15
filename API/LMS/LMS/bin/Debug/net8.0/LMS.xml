@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LMS</name>
+    </assembly>
+    <members>
+        <member name="M:LMS.Controllers.BookController.Get">
+            <summary>
+            Get All Books.
+            </summary>
+            <response code="200">List of Books found </response>
+            <response code="204">List of Books not found</response>
+        </member>
+        <member name="M:LMS.Controllers.BookController.BookbyId(System.Int32)">
+            <summary>
+            Get a required book by Id.
+            </summary>
+            <param name="id">The unique identifier of the book.</param>
+            <response code="200">Book found</response>
+            <response code ="404">Book not exist of that Id</response>
+        </member>
+        <member name="M:LMS.Controllers.BookController.Add(LMS.DTO.BookDTO)">
+             <summary>
+             Add a new book.
+             </summary>
+            <response code= "201">Book Added Successfully</response>
+            <response code ="400">Bad Request</response>
+             <response code="409">Book already exists</response>
+        </member>
+        <member name="M:LMS.Controllers.BookController.Update(System.Int32,LMS.DTO.BookDTO)">
+            <summary>
+            Update a Book.
+            </summary>
+            <param name="id">The unique identifier of the book to update.</param>
+            <response code = "200"> Book Updated Succesfully</response>
+            <response code = "404">Invalid Input </response>
+        </member>
+        <member name="M:LMS.Controllers.BookController.Delete(System.Int32)">
+            <summary>
+            Delete a book
+            </summary>
+            <param name="id">The unique identifier of the book to delete.</param>
+            <response code = "204">Book deleted successfully</response>
+            /// <response code="404">Book with the specified ID not found</response>
+        </member>
+        <member name="M:LMS.Controllers.BookController.ExportBooksReport">
+            <summary>
+            Get all books in PDF with download links.
+            </summary>
+        </member>
+        <member name="M:LMS.Controllers.IssueController.IssueBook(LMS.DTO.IssueDTO)">
+            <summary>
+            Issue a new book to Student
+            </summary>
+        </member>
+        <member name="M:LMS.Controllers.IssueController.GetAllIssues">
+            <summary>
+            Get all Issued Books
+            </summary>
+        </member>
+        <member name="M:LMS.Controllers.IssueController.GetById(System.Int32)">
+            <summary>
+            Get a particular issued book
+            </summary>
+            <param name="id">The unique identifier of the book</param>
+            <returns></returns>
+        </member>
+        <member name="M:LMS.Controllers.IssueController.ExportBooksReport">
+            <summary>
+            Get all issued books in PDF with download link
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LMS.Controllers.StudentController.Get">
+            <summary>
+            Get All Students.
+            </summary>
+            <response code="200">List of Student found </response>
+            <response code="204">List of Student not found</response>
+        </member>
+        <member name="M:LMS.Controllers.StudentController.GetbyId(System.Int32)">
+            <summary>
+            Get a required student by Id.
+            </summary>
+            <param name="id">The unique identifier of the student.</param>
+            <response code="200">Student found</response>
+            <response code ="404">Student not exist of that Id</response>
+        </member>
+        <member name="M:LMS.Controllers.StudentController.Add(LMS.DTO.StudentDTO)">
+             <summary>
+             Add a new Student.
+             </summary>
+            <response code= "201">Student Added Successfully</response>
+            <response code ="400">Bad Request</response>
+             <response code="409">Student already exists</response>
+        </member>
+        <member name="M:LMS.Controllers.StudentController.Update(System.Int32,LMS.DTO.StudentDTO)">
+            <summary>
+            Update a Student.
+            </summary>
+            <param name="id">The unique identifier of the Student to update.</param>
+            <response code = "200"> Student Updated Succesfully</response>
+            <response code = "404">Invalid Input </response>
+        </member>
+        <member name="M:LMS.Controllers.StudentController.Delete(System.Int32)">
+            <summary>Delete a Student</summary>
+            <param name="id">The unique identifier of the Student to delete.</param>
+            <response code = "204">Student deleted successfully</response>
+            /// <response code="404">Student with the specified ID not found</response>
+        </member>
+        <member name="M:LMS.Controllers.StudentController.ExportStudentReport">
+            <summary>
+            Get all Student in PDF with download links.
+            </summary>
+        </member>
+    </members>
+</doc>

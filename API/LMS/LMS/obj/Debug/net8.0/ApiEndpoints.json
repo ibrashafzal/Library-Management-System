@@ -9,13 +9,22 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[LMS.DTO.BookData, LMS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "LMS.DTO.BookData",
         "MediaTypes": [
           "text/plain",
           "application/json",
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.EmptyResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 204
       }
     ]
   },
@@ -41,7 +50,25 @@
           "application/json",
           "text/json"
         ],
-        "StatusCode": 200
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.EmptyResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.EmptyResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 409
       }
     ]
   },
@@ -73,6 +100,15 @@
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.EmptyResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
       }
     ]
   },
@@ -90,7 +126,26 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "LMS.DTO.BookData",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 204
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.EmptyResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
   },
   {
     "ContainingType": "LMS.Controllers.BookController",
@@ -108,15 +163,34 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[LMS.DTO.BookData, LMS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "LMS.DTO.BookData",
         "MediaTypes": [
           "text/plain",
           "application/json",
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.EmptyResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
       }
     ]
+  },
+  {
+    "ContainingType": "LMS.Controllers.BookController",
+    "Method": "ExportBooksReport",
+    "RelativePath": "api/Book/books/report",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "LMS.Controllers.IssueController",
@@ -144,7 +218,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[LMS.DTO.IssueData1, LMS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "LMS.DTO.IssueData1",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -181,6 +255,16 @@
     ]
   },
   {
+    "ContainingType": "LMS.Controllers.IssueController",
+    "Method": "ExportBooksReport",
+    "RelativePath": "api/Issue/Issue/report",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "LMS.Controllers.StudentController",
     "Method": "Get",
     "RelativePath": "api/Student",
@@ -190,13 +274,22 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[LMS.DTO.StudentData, LMS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "LMS.DTO.StudentData",
         "MediaTypes": [
           "text/plain",
           "application/json",
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.EmptyResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 204
       }
     ]
   },
@@ -222,7 +315,25 @@
           "application/json",
           "text/json"
         ],
-        "StatusCode": 200
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.EmptyResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.EmptyResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 409
       }
     ]
   },
@@ -254,6 +365,15 @@
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.EmptyResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
       }
     ]
   },
@@ -271,7 +391,22 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 204
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
   },
   {
     "ContainingType": "LMS.Controllers.StudentController",
@@ -289,14 +424,33 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[LMS.DTO.StudentData, LMS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "LMS.DTO.StudentData",
         "MediaTypes": [
           "text/plain",
           "application/json",
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.EmptyResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
       }
     ]
+  },
+  {
+    "ContainingType": "LMS.Controllers.StudentController",
+    "Method": "ExportStudentReport",
+    "RelativePath": "api/Student/Student/report",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]

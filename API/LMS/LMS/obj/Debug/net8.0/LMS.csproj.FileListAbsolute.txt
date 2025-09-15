@@ -145,3 +145,8 @@ E:\C# Project\Library-Management-System\API\LMS\LMS\obj\Debug\net8.0\LMS.pdb
 E:\C# Project\Library-Management-System\API\LMS\LMS\obj\Debug\net8.0\LMS.genruntimeconfig.cache
 E:\C# Project\Library-Management-System\API\LMS\LMS\obj\Debug\net8.0\ref\LMS.dll
 E:\C# Project\Library-Management-System\API\LMS\LMS\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+E:\C# Project\Library-Management-System\API\LMS\LMS\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+E:\C# Project\Library-Management-System\API\LMS\LMS\bin\Debug\net8.0\itextsharp.dll
+E:\C# Project\Library-Management-System\API\LMS\LMS\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+E:\C# Project\Library-Management-System\API\LMS\LMS\bin\Debug\net8.0\LMS.xml
+E:\C# Project\Library-Management-System\API\LMS\LMS\obj\Debug\net8.0\LMS.xml
