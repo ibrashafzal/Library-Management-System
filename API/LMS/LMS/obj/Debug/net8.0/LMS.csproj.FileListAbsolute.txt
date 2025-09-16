@@ -150,3 +150,4 @@ E:\C# Project\Library-Management-System\API\LMS\LMS\bin\Debug\net8.0\itextsharp.
 E:\C# Project\Library-Management-System\API\LMS\LMS\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
 E:\C# Project\Library-Management-System\API\LMS\LMS\bin\Debug\net8.0\LMS.xml
 E:\C# Project\Library-Management-System\API\LMS\LMS\obj\Debug\net8.0\LMS.xml
+E:\C# Project\Library-Management-System\API\LMS\LMS\bin\Debug\net8.0\libman.json

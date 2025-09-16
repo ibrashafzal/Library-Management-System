@@ -10,6 +10,10 @@
             </summary>
             <response code="200">List of Books found </response>
             <response code="204">List of Books not found</response>
+            /// <remarks>
+            This endpoint retrieves all book with their information.
+            Example: GET /api/Book
+            </remarks>
         </member>
         <member name="M:LMS.Controllers.BookController.BookbyId(System.Int32)">
             <summary>
@@ -49,21 +53,24 @@
             </summary>
         </member>
         <member name="M:LMS.Controllers.IssueController.IssueBook(LMS.DTO.IssueDTO)">
-            <summary>
-            Issue a new book to Student
-            </summary>
+            <summary>Issue a new book to Student</summary>
+             <response code="201">Book issued successfully.</response>
+            <response code="400">Invalid request.</response>
         </member>
         <member name="M:LMS.Controllers.IssueController.GetAllIssues">
             <summary>
             Get all Issued Books
             </summary>
+            <reponse code = "200">List of issued books found</reponse>
+            <response code ="204">list of issued books not found</response>
         </member>
         <member name="M:LMS.Controllers.IssueController.GetById(System.Int32)">
             <summary>
             Get a particular issued book
             </summary>
-            <param name="id">The unique identifier of the book</param>
-            <returns></returns>
+            <param name="id">The Id of issued book</param>
+            <response code="200">Issued book found</response>
+            <reponse code ="204">This book is not issued</reponse>
         </member>
         <member name="M:LMS.Controllers.IssueController.ExportBooksReport">
             <summary>

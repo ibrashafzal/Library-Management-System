@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Library Management System",
-    "description": "This Library Management System API is designed to automate and simplify common library operations. It provides endpoints for:\r\n\r\nAdding, updating, and retrieving book records.\r\n\r\nRegistering and managing student accounts.\r\n\r\nIssuing books to students and tracking due dates.\r\n\r\nReturning books and updating availability.",
+    "description": "This Library Management System API is designed to automate and simplify common library operations. It provides endpoints for managing books, students, and issuing/returning books.",
     "version": "v1"
   },
   "paths": {
@@ -12,6 +12,7 @@
           "Book"
         ],
         "summary": "Get All Books.",
+        "description": "This endpoint retrieves all book with their information.\r\nExample: GET /api/Book",
         "responses": {
           "200": {
             "description": "List of Books found",
@@ -381,8 +382,45 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Book issued successfully.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IssueDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IssueDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IssueDTO"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              }
+            }
           }
         }
       },
@@ -411,6 +449,26 @@
                 }
               }
             }
+          },
+          "204": {
+            "description": "list of issued books not found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              }
+            }
           }
         }
       }
@@ -425,7 +483,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "The unique identifier of the book",
+            "description": "The Id of issued book",
             "required": true,
             "schema": {
               "type": "integer",
@@ -435,7 +493,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Issued book found",
             "content": {
               "text/plain": {
                 "schema": {
@@ -450,6 +508,26 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/IssueData1"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
                 }
               }
             }
@@ -1000,6 +1078,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "ApiKey": {
+        "type": "apiKey",
+        "description": "Enter your API key",
+        "name": "X-API-KEY",
+        "in": "header"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "ApiKey": [ ]
+    }
+  ]
 }

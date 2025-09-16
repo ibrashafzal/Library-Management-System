@@ -15,6 +15,10 @@ namespace LMS.Controllers
         /// </summary>
         /// <response code="200">List of Books found </response>
         /// <response code="204">List of Books not found</response>
+        /// /// <remarks>
+        /// This endpoint retrieves all book with their information.
+        /// Example: GET /api/Book
+        /// </remarks>
         [HttpGet]
         [ProducesResponseType(typeof(BookData), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(EmptyResult), StatusCodes.Status204NoContent)]

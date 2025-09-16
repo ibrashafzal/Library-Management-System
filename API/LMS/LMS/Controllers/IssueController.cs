@@ -16,11 +16,13 @@ namespace LMS.Controllers
     {
         public IssueRepo issueRepo = new IssueRepo();
         private IssueReport issueReport = new IssueReport();
-        /// <summary>
-        /// Issue a new book to Student
-        /// </summary>
-             
-        [HttpPost]    
+        /// <summary>Issue a new book to Student</summary>
+        ///  <response code="201">Book issued successfully.</response>
+        /// <response code="400">Invalid request.</response>
+
+        [HttpPost]
+        [ProducesResponseType(typeof(IssueDTO), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(EmptyResult), StatusCodes.Status400BadRequest)]
         public IActionResult IssueBook([FromBody] IssueDTO request)
         {
             issueRepo.IssueBook(request.StudentId, request.BookId, request.IssueQuantity);
@@ -33,14 +35,17 @@ namespace LMS.Controllers
                 issueDate = DateTime.Now,
                 expectedReturnDate = DateTime.Now.AddDays(2)
             });
-        }   
+        }
 
-  /// <summary>
-  /// Get all Issued Books
-  /// </summary>
+        /// <summary>
+        /// Get all Issued Books
+        /// </summary>
+        /// <reponse code = "200">List of issued books found</reponse>
+        /// <response code ="204">list of issued books not found</response>
 
         [HttpGet]
         [ProducesResponseType(typeof(IssueData1), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(EmptyResult), StatusCodes.Status204NoContent)]
         public ActionResult<List<IssueData1>> GetAllIssues()
         {
            
@@ -50,9 +55,12 @@ namespace LMS.Controllers
         /// <summary>
         /// Get a particular issued book
         /// </summary>
-        /// <param name="id">The unique identifier of the book</param>
-        /// <returns></returns>
+        /// <param name="id">The Id of issued book</param>
+        /// <response code="200">Issued book found</response>
+        /// <reponse code ="204">This book is not issued</reponse>
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(IssueData1), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(EmptyResult), StatusCodes.Status404NotFound)]
         public ActionResult<IssueData1> GetById(int id)
         {
             var issue = issueRepo.GetAllIssues().FirstOrDefault(i => i.Id == id);
