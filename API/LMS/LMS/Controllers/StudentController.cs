@@ -14,10 +14,11 @@ namespace LMS.Controllers
         StudentRepo studentRepo = new StudentRepo();
         private StudentReport StudentReport = new StudentReport();
         /// <summary>
-        /// Get All Students.
+        /// Retrieve All Students.
         /// </summary>
         /// <response code="200">List of Student found </response>
         /// <response code="204">List of Student not found</response>
+        /// <remarks>This endpoint returns a list of all registered students in the system with their details.</remarks>
 
         [HttpGet]
         [ProducesResponseType(typeof(StudentData),StatusCodes.Status200OK)]
@@ -33,6 +34,8 @@ namespace LMS.Controllers
         /// <param name="id">The unique identifier of the student.</param>
         /// <response code="200">Student found</response>
         /// <response code ="404">Student not exist of that Id</response>
+        /// <remarks>This endpoint retrieves the full details of a single
+        /// student using their unique studentId.</remarks>
 
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(StudentData), StatusCodes.Status200OK)]
@@ -48,6 +51,9 @@ namespace LMS.Controllers
         ///<response code= "201">Student Added Successfully</response>
         ///<response code ="400">Bad Request</response>
         /// <response code="409">Student already exists</response>
+        /// <remarks>
+        /// This endpoint is used to register a new student in the system by providing their personal and contact details.
+        /// </remarks>
         [HttpPost]
         [ProducesResponseType(typeof(StudentData), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(EmptyResult), StatusCodes.Status400BadRequest)]
@@ -64,6 +70,9 @@ namespace LMS.Controllers
         /// <param name="id">The unique identifier of the Student to update.</param>
         /// <response code = "200"> Student Updated Succesfully</response>
         /// <response code = "404">Invalid Input </response>
+        /// <remarks>
+        /// This endpoint updates the information of an existing student. You must provide a valid studentId in the path.
+        /// </remarks>
         [HttpPut]
         [ProducesResponseType(typeof(StudentData), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(EmptyResult), StatusCodes.Status404NotFound)]
@@ -84,7 +93,10 @@ namespace LMS.Controllers
         /// <summary>Delete a Student</summary>
         /// <param name="id">The unique identifier of the Student to delete.</param>
         /// <response code = "204">Student deleted successfully</response>
-        /// /// <response code="404">Student with the specified ID not found</response>
+        /// <response code="404">Student with the specified ID not found</response>
+        /// <remarks>
+        /// This endpoint removes a student from the system using their unique studentId.
+        ///</remarks>
         [HttpDelete]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
@@ -101,6 +113,9 @@ namespace LMS.Controllers
         /// <summary>
         /// Get all Student in PDF with download links.
         /// </summary>
+        /// <remarks>
+        /// This endpoint generates and returns a PDF report of all registered students in the system.
+        /// </remarks>
         [HttpGet("Student/report")]
         public IActionResult ExportStudentReport()
         {

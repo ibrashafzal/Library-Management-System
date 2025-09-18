@@ -1,8 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
-using System.Threading.Tasks;
-namespace LMS.MiddleWare
+﻿namespace LMS.MiddleWare
 {
     public class ApiKeyMiddleware
     {
@@ -31,6 +27,7 @@ namespace LMS.MiddleWare
             if (!context.Request.Headers.TryGetValue(APIKEYNAME, out var extractedApiKey))
             {
                 context.Response.StatusCode = 401;
+                context.Response.ContentType = "text/plain";
                 await context.Response.WriteAsync("API Key was not provided.");
                 return;
             }

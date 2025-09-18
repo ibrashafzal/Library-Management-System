@@ -53,6 +53,26 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "API key not found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResult"
+                }
+              }
+            }
           }
         }
       },
@@ -61,6 +81,7 @@
           "Book"
         ],
         "summary": "Add a new book.",
+        "description": "This endpoint of API allow you to add a new book.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -148,6 +169,7 @@
           "Book"
         ],
         "summary": "Update a Book.",
+        "description": "This endpoint of API provide a facility to update some data of an existing book.",
         "parameters": [
           {
             "name": "id",
@@ -226,6 +248,7 @@
           "Book"
         ],
         "summary": "Delete a book",
+        "description": "At this endpoint of API you can delete a particular book.",
         "parameters": [
           {
             "name": "id",
@@ -287,6 +310,7 @@
           "Book"
         ],
         "summary": "Get a required book by Id.",
+        "description": "This endpoint of API provide a detail of a particular book.",
         "parameters": [
           {
             "name": "id",
@@ -349,6 +373,7 @@
           "Book"
         ],
         "summary": "Get all books in PDF with download links.",
+        "description": "At this endpoint you get all books details in PDF.",
         "responses": {
           "200": {
             "description": "OK"
@@ -362,6 +387,7 @@
           "Issue"
         ],
         "summary": "Issue a new book to Student",
+        "description": " This endpoint is used to issue a book to a student.\r\nIt records the student, the book, the issue date, and the due date.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -428,7 +454,8 @@
         "tags": [
           "Issue"
         ],
-        "summary": "Get all Issued Books",
+        "summary": "Retrieve all issued books.",
+        "description": "This endpoint returns a list of all issued books with details about the student, book, issue date, due date, and status.",
         "responses": {
           "200": {
             "description": "OK",
@@ -478,7 +505,8 @@
         "tags": [
           "Issue"
         ],
-        "summary": "Get a particular issued book",
+        "summary": "Retrieve details of a specific issued book by issue ID.",
+        "description": "This endpoint retrieves the details of a specific issued book record by its unique issueId.",
         "parameters": [
           {
             "name": "id",
@@ -541,6 +569,7 @@
           "Issue"
         ],
         "summary": "Get all issued books in PDF with download link",
+        "description": "This endpoint generates a PDF file containing all issued books with details like student, book, issue date, due date, and return status.",
         "responses": {
           "200": {
             "description": "OK"
@@ -553,7 +582,8 @@
         "tags": [
           "Student"
         ],
-        "summary": "Get All Students.",
+        "summary": "Retrieve All Students.",
+        "description": "This endpoint returns a list of all registered students in the system with their details.",
         "responses": {
           "200": {
             "description": "List of Student found",
@@ -602,6 +632,7 @@
           "Student"
         ],
         "summary": "Add a new Student.",
+        "description": "This endpoint is used to register a new student in the system by providing their personal and contact details.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -689,6 +720,7 @@
           "Student"
         ],
         "summary": "Update a Student.",
+        "description": "This endpoint updates the information of an existing student. You must provide a valid studentId in the path.",
         "parameters": [
           {
             "name": "id",
@@ -767,6 +799,7 @@
           "Student"
         ],
         "summary": "Delete a Student",
+        "description": "This endpoint removes a student from the system using their unique studentId.",
         "parameters": [
           {
             "name": "id",
@@ -811,6 +844,7 @@
           "Student"
         ],
         "summary": "Get a required student by Id.",
+        "description": "This endpoint retrieves the full details of a single\r\n            student using their unique studentId.",
         "parameters": [
           {
             "name": "id",
@@ -873,6 +907,7 @@
           "Student"
         ],
         "summary": "Get all Student in PDF with download links.",
+        "description": "This endpoint generates and returns a PDF report of all registered students in the system.",
         "responses": {
           "200": {
             "description": "OK"
@@ -888,19 +923,27 @@
         "properties": {
           "tittle": {
             "type": "string",
-            "nullable": true
+            "description": "Book title",
+            "nullable": true,
+            "example": "C# in Depth"
           },
           "author": {
             "type": "string",
-            "nullable": true
+            "description": "Author of the book",
+            "nullable": true,
+            "example": "Jon Skeet"
           },
           "quantity": {
             "type": "integer",
-            "format": "int32"
+            "description": "Number of copies available",
+            "format": "int32",
+            "example": 10
           },
           "category": {
             "type": "string",
-            "nullable": true
+            "description": "Category of the book",
+            "nullable": true,
+            "example": "Programming"
           }
         },
         "additionalProperties": false
@@ -910,19 +953,27 @@
         "properties": {
           "tittle": {
             "type": "string",
-            "nullable": true
+            "description": "Book title",
+            "nullable": true,
+            "example": "C# in Depth"
           },
           "author": {
             "type": "string",
-            "nullable": true
+            "description": "Author of the book",
+            "nullable": true,
+            "example": "Jon Skeet"
           },
           "quantity": {
             "type": "integer",
-            "format": "int32"
+            "description": "Number of copies available",
+            "format": "int32",
+            "example": 10
           },
           "category": {
             "type": "string",
-            "nullable": true
+            "description": "Category of the book",
+            "nullable": true,
+            "example": "Programming"
           },
           "id": {
             "type": "integer",
@@ -944,15 +995,20 @@
         "properties": {
           "studentId": {
             "type": "integer",
+            "description": "Student ID",
             "format": "int32"
           },
           "bookId": {
             "type": "integer",
-            "format": "int32"
+            "description": "Book ID",
+            "format": "int32",
+            "example": 1
           },
           "issueQuantity": {
             "type": "integer",
-            "format": "int32"
+            "description": "How many books you want to issue",
+            "format": "int32",
+            "example": 5
           }
         },
         "additionalProperties": false
@@ -1031,19 +1087,27 @@
         "properties": {
           "name": {
             "type": "string",
-            "nullable": true
+            "description": "Name of Student",
+            "nullable": true,
+            "example": "John"
           },
           "email": {
             "type": "string",
-            "nullable": true
+            "description": "Enail of Student",
+            "nullable": true,
+            "example": "John@example.com"
           },
           "class": {
             "type": "string",
-            "nullable": true
+            "description": "Name of Student",
+            "nullable": true,
+            "example": "A"
           },
           "contact": {
             "type": "string",
-            "nullable": true
+            "description": "Class of Student",
+            "nullable": true,
+            "example": "3334-000323"
           }
         },
         "additionalProperties": false
@@ -1053,19 +1117,27 @@
         "properties": {
           "name": {
             "type": "string",
-            "nullable": true
+            "description": "Name of Student",
+            "nullable": true,
+            "example": "John"
           },
           "email": {
             "type": "string",
-            "nullable": true
+            "description": "Enail of Student",
+            "nullable": true,
+            "example": "John@example.com"
           },
           "class": {
             "type": "string",
-            "nullable": true
+            "description": "Name of Student",
+            "nullable": true,
+            "example": "A"
           },
           "contact": {
             "type": "string",
-            "nullable": true
+            "description": "Class of Student",
+            "nullable": true,
+            "example": "3334-000323"
           },
           "id": {
             "type": "integer",

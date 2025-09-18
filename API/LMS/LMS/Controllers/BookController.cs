@@ -15,6 +15,7 @@ namespace LMS.Controllers
         /// </summary>
         /// <response code="200">List of Books found </response>
         /// <response code="204">List of Books not found</response>
+        /// <response code="404">API key not found</response>
         /// /// <remarks>
         /// This endpoint retrieves all book with their information.
         /// Example: GET /api/Book
@@ -22,6 +23,7 @@ namespace LMS.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(BookData), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(EmptyResult), StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(EmptyResult),StatusCodes.Status404NotFound)]
         public List<BookData> Get()
         {
             List<Book> books = bookRepo.GetBooks();
@@ -33,6 +35,7 @@ namespace LMS.Controllers
         /// <param name="id">The unique identifier of the book.</param>
         /// <response code="200">Book found</response>
         /// <response code ="404">Book not exist of that Id</response>
+        /// <remarks>This endpoint of API provide a detail of a particular book.</remarks>
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(BookData), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(EmptyResult),StatusCodes.Status404NotFound)]
@@ -47,6 +50,8 @@ namespace LMS.Controllers
         ///<response code= "201">Book Added Successfully</response>
         ///<response code ="400">Bad Request</response>
         /// <response code="409">Book already exists</response>
+        /// <remarks>This endpoint of API allow you to add a new book.
+        /// </remarks>
         [HttpPost]
         [ProducesResponseType(typeof(BookData), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(EmptyResult), StatusCodes.Status400BadRequest)]
@@ -63,6 +68,7 @@ namespace LMS.Controllers
         /// <param name="id">The unique identifier of the book to update.</param>
         /// <response code = "200"> Book Updated Succesfully</response>
         /// <response code = "404">Invalid Input </response>
+        /// <remarks>This endpoint of API provide a facility to update some data of an existing book.</remarks>
         [HttpPut]
         [ProducesResponseType(typeof(BookData),StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(EmptyResult) , StatusCodes.Status404NotFound)]
@@ -86,6 +92,7 @@ namespace LMS.Controllers
         /// <param name="id">The unique identifier of the book to delete.</param>
         /// <response code = "204">Book deleted successfully</response>
         /// /// <response code="404">Book with the specified ID not found</response>
+        /// <remarks>At this endpoint of API you can delete a particular book.</remarks>
         [HttpDelete]
         [ProducesResponseType(typeof(BookData),StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(EmptyResult),StatusCodes.Status404NotFound)]
@@ -103,6 +110,7 @@ namespace LMS.Controllers
         /// <summary>
         /// Get all books in PDF with download links.
         /// </summary>
+        /// <remarks>At this endpoint you get all books details in PDF.</remarks>
 
         [HttpGet("books/report")]
         public IActionResult ExportBooksReport()
@@ -115,8 +123,8 @@ namespace LMS.Controllers
             var bytes = System.IO.File.ReadAllBytes(filePath);
             return File(bytes, "application/pdf", "BooksReport.pdf");
         }
-
-
+    
+       
     }
 }
 

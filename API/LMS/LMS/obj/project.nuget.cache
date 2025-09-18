@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gguAJzUi8Dw=",
+  "dgSpecHash": "EfuMnOMB4oo=",
   "success": true,
   "projectFilePath": "E:\\C# Project\\Library-Management-System\\API\\LMS\\LMS\\LMS.csproj",
   "expectedPackageFiles": [
@@ -91,6 +91,15 @@
     "C:\\Users\\jk\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "projectPath": "E:\\C# Project\\Library-Management-System\\API\\LMS\\LMS\\LMS.csproj",
+      "warningLevel": 1,
+      "filePath": "E:\\C# Project\\Library-Management-System\\API\\LMS\\LMS\\LMS.csproj",
+      "targetGraphs": []
+    },
     {
       "code": "NU1701",
       "level": "Warning",
