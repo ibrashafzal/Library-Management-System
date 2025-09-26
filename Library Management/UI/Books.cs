@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Net.Http;
 using System.Diagnostics.Eventing.Reader;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using Library_Management.Admin;
 using Library_Management.BL;
 using Library_Management.Reports;
+
 
 namespace Library_Management.UI
 {
@@ -75,7 +77,11 @@ namespace Library_Management.UI
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id"].Value);
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a row to delete.");
+            }
+            int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id"].Value);       
             bookRepo.Delete(id);
             LoadGrid();
         }

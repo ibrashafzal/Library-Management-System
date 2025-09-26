@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Library Management System",
-    "description": "This Library Management System API is designed to automate and simplify common library operations. It provides endpoints for managing books, students, and issuing/returning books.",
+    "description": "This Library Management System API is designed to automate and simplify common library operations.\n\n It provide endpoint to perform following operations: \n\nAdd Update Delete and get all Students.\n\nAdd Update Delete and get all Books.\n\nKeep Record of issuing books & also returning books.",
     "version": "v1"
   },
   "paths": {
@@ -1163,6 +1163,20 @@
   "security": [
     {
       "ApiKey": [ ]
+    }
+  ],
+  "tags": [
+    {
+      "name": "Book",
+      "description": "Book APIs Endpoints for managing library books:"
+    },
+    {
+      "name": "Issue",
+      "description": "Issue APIs Endpoints for issuing and returning books:"
+    },
+    {
+      "name": "Student",
+      "description": "Student API Endpoint for managing students:"
     }
   ]
 }

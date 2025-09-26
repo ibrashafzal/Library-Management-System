@@ -15,7 +15,11 @@ builder.Services.AddSwaggerGen(options =>
     {
         Title = "Library Management System",
         Version = "v1",
-        Description = "This Library Management System API is designed to automate and simplify common library operations. It provides endpoints for managing books, students, and issuing/returning books."
+        Description = "This Library Management System API is designed to automate and simplify common library operations.\n\n" +
+        " It provide endpoint to perform following operations: \n\n" +
+        "Add Update Delete and get all Students.\n\n" +
+        "Add Update Delete and get all Books.\n\n" +
+        "Keep Record of issuing books & also returning books."
     });
 
     // 🔑 Add API Key definition
@@ -49,7 +53,8 @@ builder.Services.AddSwaggerGen(options =>
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFilename);
     if (File.Exists(xmlPath))
     {
-        options.IncludeXmlComments(xmlPath);
+        options.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
+
     }
 });
 

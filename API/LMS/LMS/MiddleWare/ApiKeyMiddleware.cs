@@ -3,7 +3,7 @@
     public class ApiKeyMiddleware
     {
 
-        private readonly RequestDelegate _next;
+        public readonly RequestDelegate _next;
         private const string APIKEYNAME = "X-API-KEY";
         private readonly IConfiguration _configuration;
 
@@ -36,7 +36,7 @@
             var apiKey = _configuration["ApiKey"];
             if (string.IsNullOrEmpty(apiKey))
             {
-                context.Response.StatusCode = 500;
+                context.Response.StatusCode = 400;
                 await context.Response.WriteAsync("API Key not configured on server.");
                 return;
             }
@@ -45,7 +45,7 @@
             // Compare keys
             if (!apiKey.Equals(extractedApiKey))
             {
-                context.Response.StatusCode = 403;
+                context.Response.StatusCode = 401;
                 await context.Response.WriteAsync("Unauthorized client.");
                 return;
             }

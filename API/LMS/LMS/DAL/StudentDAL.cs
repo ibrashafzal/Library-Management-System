@@ -1,4 +1,5 @@
-﻿using LMS.Entities;
+﻿using LMS.Controllers;
+using LMS.Entities;
 
 namespace LMS
 {
@@ -22,11 +23,10 @@ namespace LMS
         }
         public void DeleteStudent(int id)
         {
-            using(var db = new LmsContext())
+            using (var db = new LmsContext())
             {
-               Student student =db.Students.Where(s => s.Id == id).FirstOrDefault();
+                Student student = db.Students.Where(s => s.Id == id).FirstOrDefault();
                 db.Students.Remove(student);
-                db.SaveChanges();
             }
         }
         public void UpdateStudent(Student student)

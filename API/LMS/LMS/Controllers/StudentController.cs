@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LMS.Controllers
 {
+    /// <summary>
+    /// Student API Endpoint for managing students:
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class StudentController : ControllerBase

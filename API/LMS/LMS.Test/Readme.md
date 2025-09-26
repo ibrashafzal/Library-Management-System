@@ -1,0 +1,3 @@
+# This command generates a report of data coverage and open it.
+`dotnet test "E:\C# Project\Library-Management-System\API\LMS" /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput="E:\C# Project\Library-Management-System\API\LMS\coverage\coverage.cobertura.xml"; reportgenerator -reports:"E:\C# Project\Library-Management-System\API\LMS\coverage\coverage.cobertura.xml" -targetdir:"E:\C# Project\Library-Management-System\API\LMS\coverage-report" -reporttypes:Html; Start-Process "E:\C# Project\Library-Management-System\API\LMS\coverage-report\index.html"
+`

@@ -4,6 +4,9 @@ using LMS.Entities;
 using Microsoft.AspNetCore.Mvc;
 namespace LMS.Controllers
 {
+    /// <summary>
+    /// Book APIs Endpoints for managing library books:
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     
@@ -23,7 +26,7 @@ namespace LMS.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(BookData), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(EmptyResult), StatusCodes.Status204NoContent)]
-        [ProducesResponseType(typeof(EmptyResult),StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(EmptyResult), StatusCodes.Status404NotFound)]
         public List<BookData> Get()
         {
             List<Book> books = bookRepo.GetBooks();

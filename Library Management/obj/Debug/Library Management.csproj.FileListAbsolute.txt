@@ -314,3 +314,20 @@ E:\C# Project\Library-Management-System\Library Management\obj\Debug\Library Man
 E:\C# Project\Library-Management-System\Library Management\bin\Debug\Library Management.exe.config
 E:\C# Project\Library-Management-System\Library Management\bin\Debug\Library Management.exe
 E:\C# Project\Library-Management-System\Library Management\obj\Debug\Library Management.exe
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Google.Protobuf.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\K4os.Compression.LZ4.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\K4os.Compression.LZ4.Streams.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\K4os.Hash.xxHash.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\MySql.Data.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.Configuration.ConfigurationManager.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.IO.Pipelines.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\ZstdSharp.dll
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Google.Protobuf.pdb
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\Google.Protobuf.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\K4os.Compression.LZ4.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\K4os.Compression.LZ4.Streams.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\K4os.Hash.xxHash.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\MySql.Data.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.Configuration.ConfigurationManager.xml
+E:\C# Project\Library-Management-System\Library Management\bin\Debug\System.IO.Pipelines.xml
+E:\C# Project\Library-Management-System\Library Management\obj\Debug\Library Management.exe.config

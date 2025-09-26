@@ -238,7 +238,7 @@
   },
   {
     "ContainingType": "LMS.Controllers.IssueController",
-    "Method": "GetAllIssues",
+    "Method": "GetAll",
     "RelativePath": "api/Issue",
     "HttpMethod": "GET",
     "IsController": true,

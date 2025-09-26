@@ -1,16 +1,13 @@
 ﻿using Library_Management.BLL;
-using Library_Management.DAL;
-using Library_Management.Reports;
 using LMS.DTO;
-using LMS.Entities;
 using LMS.Reports;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Buffers.Text;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LMS.Controllers
 {
+    /// <summary>
+    /// Issue APIs Endpoints for issuing and returning books:
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class IssueController : ControllerBase
@@ -52,7 +49,7 @@ namespace LMS.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(IssueData1), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(EmptyResult), StatusCodes.Status204NoContent)]
-        public ActionResult<List<IssueData1>> GetAllIssues()
+        public ActionResult<List<IssueData1>> GetAll()
         {
            
             var issues = issueRepo.GetAllIssues().Select(IssueData1.FromEntity).ToList();
